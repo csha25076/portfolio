@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初芝晴義 | ポートフォリオ</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Mincho&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 1. リセット & 基本設定 (Japanese Minimal Theme) */
+        :root {
+            --primary-color: #C0392B; /* アクセントカラー (朱色/赤系統) */
+            --secondary-color: #2C3E50; /* 濃い文字色 (墨色/藍色に近いネイビー) */
+            --background-color: #F8F7F4; /* 背景色 (生成り色/オフホワイト) */
+            --light-gray: #E8E5E0; /* セクションの背景色など */
+            --text-color: #333333; /* 標準の文字色 */
+            --max-width: 1000px;
+            --border-radius: 0px; /* 角丸をなくし、すっきりとした印象に */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* 見出しに明朝体、本文にゴシック体 */
+            font-family: 'Noto Sans JP', sans-serif; 
+            line-height: 1.8; /* 行間を広げ、ゆったりとした印象に */
+            color: var(--text-color);
+            background-color: var(--background-color);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Kosugi Mincho', serif; /* 明朝体を適用 */
+            letter-spacing: 0.05em; /* 文字間隔を微調整 */
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #A92C1F;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 2. レイアウトの共通スタイル */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 100px 0; /* 余白を大きくし、余白の美を強調 */
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 70px;
+            font-size: 2.8em;
+            font-weight: 700;
+            color: var(--secondary-color);
+            position: relative;
+        }
+        
+        .section-heading::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+            margin: 15px auto 0;
+        }
+
+        /* 3. ヘッダー/ナビゲーション */
+        header {
+            background-color: rgba(255, 255, 255, 0.95); /* 半透明で軽く */
+            backdrop-filter: blur(5px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* 影を控えめに */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .nav-links li {
+            display: inline;
+            margin-left: 40px;
+        }
+
+        .nav-links a {
+            color: var(--secondary-color);
+            font-weight: 400;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 1px; /* 線を細く */
+            background-color: var(--primary-color);
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* 4. 自己紹介 (Hero/About) */
+        #about {
+            background-color: var(--background-color);
+            padding-top: 120px;
+            padding-bottom: 120px;
+            text-align: center;
+        }
+
+        .profile-content {
+            display: flex;
+            align-items: flex-start; /* 上端を揃える */
+            gap: 60px; /* 余白を広げる */
+            text-align: left;
+            margin-top: 50px;
+            padding: 0;
+            background-color: transparent;
+            box-shadow: none;
+        }
+
+        .profile-text {
+            flex: 2;
+        }
+        
+        .profile-text h1 {
+            font-size: 3.5em;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .profile-text h2 {
+            font-size: 1.6em;
+            color: var(--text-color);
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+        
+        .profile-text p {
+            margin-bottom: 30px;
+        }
+
+        .profile-image {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .profile-image img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            border-radius: var(--border-radius); 
+            object-fit: cover;
+            border: 1px solid #ddd; /* 細い枠線 */
+            box-shadow: none;
+        }
+        
+        .gaku-chika {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #FFFFFF;
+            border: 1px solid var(--primary-color); /* アクセントとして朱色の細い線 */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); /* 影をさらに控えめに */
+        }
+        
+        .gaku-chika h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        /* 5. スキル */
+        #skills .container {
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .skill-item {
+            padding: 30px 20px;
+            background-color: #FFFFFF;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .skill-item h4 {
+            font-size: 1.3em;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        /* 6. 作品 */
+        #projects {
+            background-color: var(--light-gray);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            background-color: var(--background-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border-top: 2px solid var(--primary-color); /* 細いアクセントライン */
+            transition: box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background-color: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            color: var(--secondary-color);
+            border-bottom: 1px solid #ddd;
+        }
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-info h4 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .project-info .tags {
+            font-size: 0.8em;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        /* 7. フッター */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--background-color);
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .footer-links a {
+            color: var(--primary-color);
+            margin: 0 15px;
+            font-size: 1.6em;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        /* 8. レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .profile-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            
+            .profile-text h1 {
+                font-size: 2.5em;
+            }
+
+            .profile-text h2 {
+                font-size: 1.4em;
+            }
+            
+            .profile-image {
+                order: -1;
+            }
+
+            .nav-links li {
+                margin-left: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">初芝晴義</div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        
+        <section id="about">
+            <div class="container">
+                <div class="profile-content">
+                    
+                    <div class="profile-image">
+                        <img src="placeholder_image.jpg" alt="プロフィール写真"> 
+                    </div>
+                    
+                    <div class="profile-text">
+                        <h1>初芝晴義</h1>
+                        <h2>日本大学 理工学部 1年生 / Webデザイナー志望</h2>
+                        
+                        <p>
+                            はじめまして。私は日本大学理工学部で、情報技術とデザインの基礎を学んでいる初芝晴義です。
+                            特に、**ユーザー体験**を考慮したシンプルかつ機能的なWebサイト構築に情熱を持っています。
+                            大学で学んでいる技術的な知識を土台に、デザインの両面から人々の日常を豊かにするデジタルコンテンツを生み出すことを目指しています。
+                        </p>
+
+                        <div class="gaku-chika">
+                            <h3>学業以外で力を入れたこと (問題解決と柔軟な対応)</h3>
+                            <p>
+                                私は現在、ホテルで清掃やフロント業務のアルバイトをしています。ある時、日本語ができると紹介された外国人スタッフ2名の教育係を任されました。
+                            </p>
+                            
+                            <p>
+                                指導開始当初、**指示が全く通じず**、業務が滞るという問題が発生しました。私はこの「指示が通じない」という状況で諦めず、**なぜ伝わらないのか原因を徹底的に観察**しました。
+                            </p>
+                            
+                            <p>
+                                その結果、彼らが実際には日本語を全く理解していないことに気付き、**従来の指導法を即座に破棄**しました。身振り手振りを交え、知っている英単語を並べて説明するという**非言語的・視覚的な指導方法に切り替え**ました。
+                            </p>
+                            
+                            <p>
+                                根気強くコミュニケーションを続けた結果、指導方法を切り替えてから**約1週間で指示がスムーズに伝わるように**なり、2名は一通りの仕事内容を習得することができました。
+                            </p>
+                            
+                            <p style="font-weight: 700; color: var(--secondary-color);">
+                                この経験から、**「前提を鵜呑みにせず、相手の立場で考え、柔軟に対応する力」**と**「課題の根本原因を見抜く観察力」**の重要性を学びました。これは、ユーザーの課題を解決するWebデザインにも活かせると確信しています。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h3 class="section-heading">Skills</h3>
+                
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <h4>HTML5 & CSS3</h4>
+                        <p>セマンティックなマークアップと、モダンなレイアウト（Flexbox/Grid）を用いたレスポンシブデザインの構築。</p>
+                    </div>
+                    <div class="skill-item">
+                        <h4>JavaScript (ES6)</h4>
+                        <p>DOM操作、イベント処理、簡単な非同期処理を用いたインタラクティブなUIの実装。</p>
+                    </div>
+                    <div class="skill-item">
+                        <h4>Photoshop / Figma</h4>
+                        <p>ワイヤーフレーム作成から、プロトタイピング、ビジュアルデザイン、画像編集までの一連の作業。</p>
+                    </div>
+                    <div class="skill-item">
+                        <h4>Wordpress</h4>
+                        <p>既存テーマのカスタマイズ、基本的なCMSの構築・運用、PHPを用いた簡単な改修。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h3 class="section-heading">Projects</h3>
+                
+                <div class="projects-grid">
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                            [作品1のスクリーンショットを想定]
+                        </div>
+                        <div class="project-info">
+                            <h4>大学サークル公式Webサイト</h4>
+                            <p class="tags">#HTML #CSS #JavaScript #デザイン</p>
+                            <p>サークルの認知度向上を目的とした全面リニューアル。ユーザー目線の導線設計を意識し、問い合わせ率を20%向上。</p>
+                            <a href="#" target="_blank">View Site &rarr;</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                            [作品2のスクリーンショットを想定]
+                        </div>
+                        <div class="project-info">
+                            <h4>個人制作のToDo管理アプリ</h4>
+                            <p class="tags">#JavaScript #React (学習中)</p>
+                            <p>フロントエンド技術習得のため開発。モダンなフレームワークの基礎を実践的に学び、効率的なタスク管理を実現。</p>
+                            <a href="#" target="_blank">View GitHub &rarr;</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                            [作品3のスクリーンショットを想定]
+                        </div>
+                        <div class="project-info">
+                            <h4>架空ECサイトのデザイン提案</h4>
+                            <p class="tags">#Figma #UI/UX #デザイン</p>
+                            <p>情報設計に基づいたワイヤーフレームと、清潔感のある統一されたビジュアルデザインを提案。</p>
+                            <a href="#" target="_blank">View Prototype &rarr;</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <div class="container" style="text-align: center;">
+                <h3 class="section-heading">Contact</h3>
+                <p style="font-size: 1.2em; margin-bottom: 30px;">
+                    私のスキルや作品にご興味をお持ちいただけましたら、お気軽にご連絡ください。
+                </p>
+                <a href="mailto:your.email@example.com" class="button" style="display: inline-block; background-color: var(--primary-color); color: white; padding: 12px 30px; border-radius: 5px; font-weight: 700; transition: background-color 0.3s;">
+                    メールで連絡する
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links" style="margin-bottom: 15px;">
+                <a href="#" aria-label="LinkedIn">In</a> |
+                <a href="#" aria-label="GitHub">Git</a> |
+                <a href="#" aria-label="Twitter/X">X</a>
+            </div>
+            <p>&copy; 2025 初芝晴義 Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
